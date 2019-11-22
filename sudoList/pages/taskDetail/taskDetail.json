@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "componet-taskLogItem": "/component/taskLogItem/taskLogItem"
+  }
+}

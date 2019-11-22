@@ -1,0 +1,36 @@
+<!--component/taskLogItem/taskLogItem.wxml-->
+<view wx:for="{{taskLogList}}" wx:for-index="index" wx:for-item="item" wx:key="_id" class="taskloglist__item">
+    <view class="taskLogList__item__top">
+      <view class="item__top__user-info">
+        <image class="user-info__avatar" src="{{item.avatarUrl}}" bindtap="avatarClick" data-item="{{item}}"></image>
+        <view class="user-info__text-content">
+          <text class="user-info__nick-name">{{item.nickName}}</text>
+          <text class="user-info__task-name" bindtap="taskTitleClick" data-item="{{item}}">坚持#{{item.taskTitle}}#</text>
+        </view>
+      </view>
+      <view class="item__top__date">
+        <text class="top__date__ctime">{{item.ctime}}</text>
+        <text class="top__date__day-nums">{{item.continuedNums}}天</text>
+      </view>
+    </view>
+    <view class="taskLogList__item__center">
+      <image class="item__center__img" src="{{item.taskLogPic}}" bindtap="imgClick" data-url="{{item.taskLogPic}}"></image>
+      <text class="item__center__title">{{item.taskLogTitle}}</text>
+      <text class="item__center__check-txt">已有{{item.checkNums}}人对其监督</text>
+    </view>
+    <view class="taskLogList__item__bottom">
+      <view class="item__bottom__praise">
+        <image src="{{praiseUrl}}" class="item__bottom__praise-img" bindtap="praiseClick"></image>
+        <text class="item__bottom__praise-text">{{item.praiseNums}}</text>
+      </view>
+      <view class="item__bottom__comment">
+        <image class="item__bottom__comment-img" src="/imgs/icon_message.png"></image>
+        <text class="item__bottom__comment-text">{{item.commentNums}}</text>
+      </view>
+      <image class="item__bottom__action" src="/imgs/icon_more.png" bindtap="actionClick" data-item="{{item}}"></image>
+    </view>
+  </view>
+  <mp-actionsheet bindactiontap="actionSheetBtnClick" show="{{showActionsheet}}" actions="{{actions}}">
+</mp-actionsheet>
+  <mp-gallery show="{{galleryIsShow}}" imgUrls="{{galleryUrl}}" delete="{{galleryDelete}}"></mp-gallery>
+  

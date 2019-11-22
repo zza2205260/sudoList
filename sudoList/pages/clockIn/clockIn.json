@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "mp-cells": "/miniprogram_npm/weui-miniprogram/cells/cells",
+    "mp-cell": "/miniprogram_npm/weui-miniprogram/cell/cell",
+    "mp-uploader": "/miniprogram_npm/weui-miniprogram/uploader/uploader",
+    "mp-toptips": "/miniprogram_npm/weui-miniprogram/toptips/toptips"
+  },
+  "navigationBarTitleText": "发布动态"
+
+
+}

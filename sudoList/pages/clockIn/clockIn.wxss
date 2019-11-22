@@ -1,0 +1,30 @@
+/* pages/clockIn/clockIn.wxss */
+.content{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  background-color: #EFEFF4;
+  align-items: center;
+}
+.textContent{
+  width: 100vw;
+  height: 300rpx;
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+.mImg{
+  width: 500rpx;
+  height: 500rpx;
+}
+.uploadImg{
+  margin-top: 30rpx;
+  width: 500rpx;
+}
+.submit{
+  position: absolute;
+  bottom: 200rpx;
+  width: 500rpx;
+  left: 50vw;
+  margin-left: -250rpx;
+}

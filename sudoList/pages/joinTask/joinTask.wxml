@@ -1,0 +1,9 @@
+<!--pages/joinTask/joinTask.wxml-->
+
+<view class="page">
+  <view class="taskView">
+    <text class="taskView__title">{{taskInfo.title}}</text>
+    <text class="taskView__join-nums">已有{{taskInfo.joinNums}}人加入</text>
+    <button class="taskView__join-btn" type="primary" bindtap="joinClick">加入</button>  
+  </view>
+</view>

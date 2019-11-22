@@ -1,0 +1,4 @@
+<!--pages/setting/setting.wxml-->
+<view class="page">
+  <mp-cell value="监督人" footer="邀请好友监督你的打卡" hover="true" link="true" bindtap="checkClick"></mp-cell>
+</view>

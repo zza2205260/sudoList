@@ -1,0 +1,12 @@
+<!--pages/community/community.wxml-->
+<view class="page">
+  <scroll-view class="cate-list" scroll-x enable-flex="true">
+      <text wx:for="{{cateList}}" wx:for-index="idx" wx:for-item="item" wx:key="id" class="cate-list__item-txt" style="{{item.isClick == 1 ? 'color:#07c160' : 'color:#707070'}}" bindtap="cateClick" data-item="{{item}}" data-index="{{idx}}">{{item.title}}</text>
+  </scroll-view>
+  <scroll-view class="content-list" scroll-y enable-flex="true">
+    <componet-taskLogItem taskLogList="{{taskLogList}}"></componet-taskLogItem>
+
+  </scroll-view>
+
+
+</view>

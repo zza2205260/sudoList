@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "mp-gallery": "../miniprogram_npm/weui-miniprogram/gallery/gallery",
+    "mp-actionsheet": "../miniprogram_npm/weui-miniprogram/actionsheet/actionsheet"
+  }
+}

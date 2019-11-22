@@ -1,0 +1,24 @@
+/* component/fansItem/fansItem.wxss */
+.content{
+  width: 100vw;
+  height: 150rpx;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1rpx solid #e6e6e6;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 20rpx;
+}
+.avatar{
+  width: 100rpx;
+  height: 100rpx;
+}
+.remove{
+  width: 150rpx;
+  height: 70rpx;
+  font-size: 30rpx;
+  margin-right: 20rpx;
+}
+.nick-name{
+  margin-left: 20rpx;
+}

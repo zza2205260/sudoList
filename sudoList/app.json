@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/mlist/mlist",
+    "pages/community/community",
+    "pages/setting/setting",
+    "pages/addTask/addTask",
+    "pages/taskDetail/taskDetail",
+    "pages/clockIn/clockIn",
+    "pages/becomeCheckUser/becomeCheckUser",
+    "pages/userHome/userHome",
+    "pages/checkList/checkList",
+    "pages/joinTask/joinTask"
+  ],
+  "tabBar": {
+    "color": "#707070",
+    "selectcolor": "#07c160",
+    "list": [
+      {
+        "pagePath": "pages/mlist/mlist",
+        "text": "习惯",
+        "iconPath": "imgs/icon_task_default.png",
+        "selectedIconPath": "imgs/icon_task_press.png"
+      },
+      {
+        "pagePath": "pages/community/community",
+        "text": "关注",
+        "iconPath": "imgs/icon_meeting_default.png",
+        "selectedIconPath": "imgs/icon_meeting_press.png"
+      },
+      {
+        "pagePath": "pages/setting/setting",
+        "text": "我的",
+        "iconPath": "imgs/icon_me_default.png",
+        "selectedIconPath": "imgs/icon_me_press.png"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
+}

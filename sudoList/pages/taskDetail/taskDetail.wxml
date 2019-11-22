@@ -1,0 +1,7 @@
+<!--pages/taskDetail/taskDetail.wxml-->
+<scroll-view class="content" scroll-y="true" enable-flex="true" style="height:{{scrollHeight}}px;">
+  <componet-taskLogItem taskLogList="{{taskLogList}}"></componet-taskLogItem>
+</scroll-view>
+  
+<button type="primary" class="clockIn" bindtap="clockIn">打卡</button>
+

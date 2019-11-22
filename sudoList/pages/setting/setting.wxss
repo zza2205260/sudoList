@@ -1,0 +1,8 @@
+/* pages/setting/setting.wxss */
+.page{
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background-color: #EFEFF4;
+}

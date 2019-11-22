@@ -1,0 +1,7 @@
+<!--component/fansItem/fansItem.wxml-->
+<view class="content" wx:for="{{dataList}}" wx:for-item="itemData" wx:for-index="idx" wx:key="_id">
+
+  <image class="avatar" src="{{itemData.avatarUrl}}"></image>
+  <text class="nick-name">{{itemData.nickName}}</text>
+  <button class="remove" type="primary" bindtap="removeCheckUser" data-item="{{itemData}}" data-index="{{idx}}">解除</button>
+</view>

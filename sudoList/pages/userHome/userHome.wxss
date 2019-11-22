@@ -1,0 +1,7 @@
+/* pages/userHome/userHome.wxss */
+.page{
+  background-color: #EFEFF4;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "componet-taskLogItem": "/component/taskLogItem/taskLogItem"
+  },
+  "navigationBarTitleText": "关注"
+}

@@ -1,0 +1,123 @@
+/* component/taskLogItem/taskLogItem.wxss */
+
+.taskloglist__item{
+  width: 100vw;
+  background-color: white;
+  margin-top: 10rpx;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+.taskLogList__item__top{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.item__top__user-info{
+  height: 150rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 20rpx;
+}
+.user-info__avatar{
+  width: 100rpx;
+  height: 100rpx;
+}
+.user-info__text-content{
+  display: flex;
+  flex-direction: column;
+  margin-left: 20rpx;
+}
+
+.user-info__nick-name{
+  color: #000000;
+  font-size: 28rpx;
+}
+.user-info__task-name{
+  color: #576b95;
+  font-size: 28rpx;
+}
+
+
+.item__top__date{
+  height: 150rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 20rpx;
+}
+.top__date__ctime{
+  color: #b2b2b2;
+  font-size: 26rpx;
+}
+.top__date__day-nums{
+  color: #09BB07;
+  font-size: 28rpx;
+  text-align: right;
+}
+
+.taskLogList__item__center{
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+}
+.item__center__img{
+  width: 100%;
+  height: 350rpx;
+}
+.item__center__title{
+  margin-top: 20rpx;
+  color: #353535;
+  font-size: 34rpx;
+}
+.item__center__check-txt{
+  margin-top: 20rpx;
+  color: #576b95;
+  font-size: 28rpx;
+}
+.taskLogList__item__bottom{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100vw;
+  box-sizing: border-box;
+  padding: 20rpx;
+}
+.item__bottom__praise{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 50rpx;
+}
+.item__bottom__praise-img{
+  width: 35rpx;
+  height: 35rpx;
+}
+.item__bottom__praise-text{
+  color: #b2b2b2;
+  font-size: 28rpx;
+  margin-left: 10rpx;
+}
+.item__bottom__comment{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 50rpx;
+}
+.item__bottom__comment-img{
+  width: 35rpx;
+  height: 35rpx;
+}
+.item__bottom__comment-text{
+  color: #b2b2b2;
+  font-size: 28rpx;
+  margin-left: 10rpx;
+}
+.item__bottom__action{
+  width: 35rpx;
+  height: 35rpx;
+}

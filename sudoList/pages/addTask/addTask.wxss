@@ -1,0 +1,26 @@
+/* pages/addTask/addTask.wxss */
+.add-task-view{
+  width: 100vw;
+  height: 100vh;
+  background-color: #EFEFF4;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+}
+
+.add-task{
+  margin-top: 30rpx;
+  width: 100vw;
+  height: 100rpx;
+  padding: 10rpx;
+  box-sizing: border-box;
+  background-color: white;
+}
+
+.add-task-btn{
+  position: fixed;
+  bottom: 300rpx;
+  left: 50vw;
+  margin-left: -250rpx;
+  width: 500rpx;
+}

@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "com-userInfo": "../../component/userInfo/userInfo"
+  }
+}

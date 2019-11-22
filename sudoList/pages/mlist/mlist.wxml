@@ -1,0 +1,7 @@
+<!--pages/mlist/mlist.wxml-->
+<scroll-view class="taskListView" style="height:{{scrollHeight}}px;" scroll-y="true" enable-flex="true">
+  <view wx:for="{{taskListData}}" wx:for-index="idx" wx:for-item="item" wx:key="_id" class="taskListItemView" bindtap="taskItemClick" data-item="{{item}}">  
+    <text class="taskListItem__title">{{item.title}}</text>
+  </view>
+</scroll-view>
+<com-btn class="AddTaskBtn" btnTitle="添加习惯" clickFunc="{{addTaskClickF}}"></com-btn>

@@ -1,0 +1,2 @@
+<!--component/comButton/comButton.wxml-->
+<button type="primary" open-type="getUserInfo" bindgetuserinfo="click">{{btnTitle}}</button>

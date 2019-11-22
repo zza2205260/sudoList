@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "fans-item": "../../component/fansItem/fansItem"
+  },
+  "navigationBarTitleText": "监督人"
+}

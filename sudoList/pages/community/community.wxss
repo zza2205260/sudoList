@@ -1,0 +1,32 @@
+/* pages/community/community.wxss */
+.page{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #EFEFF4;
+}
+.cate-list{
+  width: 100vw;
+  height: 100rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.cate-list__item-txt{
+  color: #707070;
+  font-size: 30rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  margin-left: 20rpx;
+  flex-shrink: 0;
+}
+
+
+.content-list{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

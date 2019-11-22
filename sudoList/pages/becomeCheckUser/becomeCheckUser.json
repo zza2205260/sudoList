@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "com-btn": "../../component/comButton/comButton"
+  },
+  "navigationBarTitleText": "成为监督人"
+}

@@ -1,0 +1,15 @@
+<!--pages/clockIn/clockIn.wxml-->
+<mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips>
+<view class="content">
+  <form bindsubmit="bindFormSubmit">
+    <textarea class="textContent" auto-focus="true" placeholder="写下今天做了什么有助于大家监督你个懒狗" name="textarea"></textarea>
+    <button type="primary" form-type="submit" class="submit">交作业</button>
+  </form>
+
+
+  <mp-cells>
+    <mp-cell>
+      <mp-uploader files="{{files}}" max-count="1" title="图片上传" tips="上传一下你的打卡证据，正所谓无图无真相" select="{{selectFile}}"></mp-uploader>
+    </mp-cell>
+  </mp-cells>
+</view>

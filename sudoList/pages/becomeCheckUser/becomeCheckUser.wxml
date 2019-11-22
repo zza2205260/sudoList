@@ -1,0 +1,6 @@
+<!--pages/becomeCheckUser/becomeCheckUser.wxml-->
+<view class="page">
+  <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
+  <text class="explain"> 你好。求求成为我的习惯监督人吧。救救孩子吧！</text>
+</view>
+<com-btn class="accept" btnTitle="接受" clickFunc="{{addTaskClickF}}"></com-btn>

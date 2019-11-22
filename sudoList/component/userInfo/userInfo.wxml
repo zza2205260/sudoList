@@ -1,0 +1,11 @@
+<!--component/userInfo/userInfo.wxml-->
+<view class="page">
+  <image class="avatar" src="{{userInfoViewData.avatarUrl}}"></image>
+  <text class="nickName">{{userInfoViewData.nickName}}</text>
+  <text class="gender">{{userInfoViewData.gender}}</text>
+  <view class="action__view">
+    <text>粉丝 {{userInfoViewData.fansNums}}</text>
+    <text>关注 {{userInfoViewData.followNums}}</text>
+    <text bindtap="followClick">{{userInfoViewData.followed}}</text>
+  </view>
+</view>

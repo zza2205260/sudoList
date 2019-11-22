@@ -1,0 +1,4 @@
+<!--pages/userHome/userHome.wxml-->
+<view class="page">
+  <com-userInfo wx:if="{{userInfo}}" userInfo="{{userInfo}}"></com-userInfo>
+</view>

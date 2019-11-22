@@ -1,0 +1,6 @@
+<!--pages/addTask/addTask.wxml-->
+<view class="add-task-view">
+  <input class="add-task" auto-focus placeholder="输入你要添加的习惯" bindinput="inputChange" />
+
+</view>
+<com-btn class="add-task-btn" btnTitle="添加习惯" clickFunc="{{addTaskClick}}"></com-btn>

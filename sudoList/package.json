@@ -1,0 +1,16 @@
+{
+  "name": "sudolist",
+  "version": "1.0.0",
+  "description": "npm i miniprogram-sm-crypto --production",
+  "main": "app.js",
+  "dependencies": {
+    "miniprogram-datepicker": "^0.3.0",
+    "weui-miniprogram": "^0.1.12"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

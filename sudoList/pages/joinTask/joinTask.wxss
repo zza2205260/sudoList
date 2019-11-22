@@ -1,0 +1,36 @@
+/* pages/joinTask/joinTask.wxss */
+.page{
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  display: flex;
+  flex-direction: column;
+  background-color: #EFEFF4;
+  width: 100vw;
+  height: 100vh;
+}
+.taskView{
+  background-color: #ffffff;
+  width: 100vw;
+  box-sizing: border-box;
+  padding: 20rpx;
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+}
+.taskView__title{
+  margin-top: 0rpx; 
+  color: #353535;
+  font-size: 34rpx;
+  text-overflow:ellipsis;
+  word-wrap:break-word;
+}
+.taskView__join-nums{
+  margin-top: 30rpx;
+  color: #888888;
+  font-size: 28rpx;
+}
+.taskView__join-btn{
+  width: 100%;
+  margin-top: 30rpx;
+}

@@ -1,0 +1,6 @@
+<!--pages/checkList/checkList.wxml-->
+<view class="page">
+  <fans-item dataList="{{checkUserList}}"></fans-item>
+  
+</view>
+<button class="shareBtn" type="primary" open-type="share" >邀请好友</button>

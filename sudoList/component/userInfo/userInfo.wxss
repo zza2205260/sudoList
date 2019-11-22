@@ -1,0 +1,25 @@
+/* component/userInfo/userInfo.wxss */
+.page{
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.avatar{
+  margin-top: 20rpx;
+  width: 150rpx;
+  height: 150rpx;
+}
+.nickName{
+  margin-top: 20rpx;
+}
+.gender{
+  margin-top: 20rpx;
+}
+.action__view{
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 20rpx;
+}

@@ -1,0 +1,17 @@
+/* pages/taskDetail/taskDetail.wxss */
+.content{
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  background-color: #EFEFF4;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+.clockIn{
+  position: absolute;
+  bottom: 200rpx;
+  left: 50vw;
+  margin-left: -250rpx;
+  width: 500rpx;
+}
