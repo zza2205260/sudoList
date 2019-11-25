@@ -71,11 +71,11 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    let uerInfo = JSON.parse(wx.getStorageSync("user"))
+    let userInfo = JSON.parse(wx.getStorageSync("user"))
 
     return {
       title: "拜托拜托，监督一下我吧",
-      path: "/pages/becomeCheckUser/becomeCheckUser?open_id="+userInfo._open_id
+      path: "/pages/becomeCheckUser/becomeCheckUser?open_id=" + userInfo._open_id
     }
   }
 })
