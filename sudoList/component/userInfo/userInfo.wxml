@@ -2,7 +2,7 @@
 <view class="page">
   <image class="avatar" src="{{userInfoViewData.avatarUrl}}"></image>
   <text class="nickName">{{userInfoViewData.nickName}}</text>
-  <text class="gender">{{userInfoViewData.gender}}</text>
+  <text class="gender">{{userInfoViewData.genderTxt}}</text>
   <view class="action__view">
     <text>粉丝 {{userInfoViewData.fansNums}}</text>
     <text>关注 {{userInfoViewData.followNums}}</text>
