@@ -1,5 +1,10 @@
 //app.js
+import {constWxVersion} from "/utils/const.js"
+
 App({
+  globalData: {
+    "isCheck": false
+  },
   onLaunch: function() {},
   onShow() {
     wx.cloud.init();
@@ -21,7 +26,14 @@ App({
         wx.setStorageSync("user", JSON.stringify(userInfoData))
       })
     }
-
+    wx.cloud.callFunction({
+      name: "Env",
+      data: {}  
+    }).then(res=>{
+      if (res.result.version == constWxVersion){
+        this.globalData.isCheck = true
+      }
+    })
 
   },
   getUserInfoStorage: function() {
@@ -33,5 +45,4 @@ App({
     }
     return userInfo
   }
-
 })

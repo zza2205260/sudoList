@@ -39,9 +39,15 @@ Page({
     this.getTaskLogList();
   },
   clockIn: function() {
-    wx.navigateTo({
-      url: '/pages/clockIn/clockIn?taskId=' + this.data.taskId + '&taskTitle='+ this.data.taskDetail.title,
-    })
+    if(!getApp().globalData.isCheck){
+      wx.navigateTo({
+        url: '/pages/clockIn/clockIn?taskId=' + this.data.taskId + '&taskTitle=' + this.data.taskDetail.title,
+      })
+    }else{
+      wx.showToast({
+        title: '打卡成功',
+      })
+    }
   },
   getTaskLogList: function() {
     wx.cloud.callFunction({

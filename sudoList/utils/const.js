@@ -2,7 +2,10 @@
 const constDataSubMsg = {
   clockInMsgId: "vz7kPxQBFeQxZ5RZOr55Y3dSDtoRhPAT9TelQS1fkbk"
 }
+const wxVersion = '1.0.2'
+
 
 module.exports = {
-  constDataSubMsg: constDataSubMsg
+  constDataSubMsg: constDataSubMsg,
+  constWxVersion: wxVersion
 }
