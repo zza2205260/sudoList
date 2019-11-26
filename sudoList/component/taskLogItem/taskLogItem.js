@@ -15,6 +15,7 @@ Component({
    */
   data: {
     praiseUrl: '/imgs/icon_likegood.png',
+    taskLogListFix: [],
     galleryIsShow: false,
     galleryUrl: [],
     galleryDelete: false,
@@ -30,19 +31,48 @@ Component({
     ],
     action_select_data: {}
   },
+  observers: {
+    'taskLogList': function (user) {
+      user.forEach(item => {
+        if (item.isPraise){
+          item.praiseUrl = '/imgs/icon_likegood-2.png'
+        }else{
+          item.praiseUrl = '/imgs/icon_likegood.png'
+        }
+      })
 
+      this.setData({
+        taskLogListFix: user
+      })
+    }
+  },
   /**
    * 组件的方法列表
    */
 
   methods: {
-    praiseClick: function() {
-      this.setData({
-        praiseUrl: '/imgs/icon_likegood-2.png'
+    praiseClick: function(e) {
+      let item = e.currentTarget.dataset.item
+      let index = e.currentTarget.dataset.index
+      wx.cloud.callFunction({
+        name: "praise",
+        data: {
+          "taskLogId": item._id,
+          "action": "Add"
+        }
+      }).then(res=>{
+        if (res.result.isRefresh){
+          let tempTaskLogList = this.data.taskLogListFix
+          tempTaskLogList[index].praiseNums += 1
+          tempTaskLogList[index].praiseUrl = '/imgs/icon_likegood-2.png'
+          this.setData({
+            taskLogListFix: tempTaskLogList
+          })
+        }
       })
     },
     actionClick: function(e) {
-      const item = e.currentTarget.dataset.item;
+      let item = e.currentTarget.dataset.item;
       this.setData({
         showActionsheet: true,
         action_select_data: item

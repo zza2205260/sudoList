@@ -1,5 +1,5 @@
 <!--component/taskLogItem/taskLogItem.wxml-->
-<view wx:for="{{taskLogList}}" wx:for-index="index" wx:for-item="item" wx:key="_id" class="taskloglist__item">
+<view wx:for="{{taskLogListFix}}" wx:for-index="index" wx:for-item="item" wx:key="_id" class="taskloglist__item">
     <view class="taskLogList__item__top">
       <view class="item__top__user-info">
         <image class="user-info__avatar" src="{{item.avatarUrl}}" bindtap="avatarClick" data-item="{{item}}"></image>
@@ -20,7 +20,7 @@
     </view>
     <view class="taskLogList__item__bottom">
       <view class="item__bottom__praise">
-        <image src="{{praiseUrl}}" class="item__bottom__praise-img" bindtap="praiseClick"></image>
+        <image src="{{item.praiseUrl}}" class="item__bottom__praise-img" bindtap="praiseClick" data-item="{{item}}" data-inedx="{{index}}"></image>
         <text class="item__bottom__praise-text">{{item.praiseNums}}</text>
       </view>
       <view class="item__bottom__comment">
