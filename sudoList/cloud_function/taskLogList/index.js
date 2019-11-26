@@ -26,14 +26,22 @@ exports.main = async(event, context) => {
   }).get()
   taskLogList = taskLogList.data
   if (taskLogList.length > 0) {
-    let taskPicList = []
     if (userInfo.data[0].nickName.length > 0) {
-      taskLogList.forEach((index) => {
+      const taskPromises = taskLogList.map((index) => {
         index.nickName = userInfo.data[0].nickName
         index.avatarUrl = userInfo.data[0].avatarUrl
         index.gender = userInfo.data[0].gender
-        taskPicList.push(index.taskLogPic)
+        index.isPraise = false
+        return db.collection("praise").where({
+          "_open_id": open_id,
+          "taskLogId": index._id
+        }).count().then(res => {
+          if (res.total > 0) {
+            index.isPraise = true
+          }
+        })
       })
+      await Promise.all(taskPromises)
     }
   }
   return_data.taskLogList = taskLogList
