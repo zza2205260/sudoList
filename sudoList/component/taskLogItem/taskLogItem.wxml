@@ -14,7 +14,7 @@
       </view>
     </view>
     <view class="taskLogList__item__center">
-      <image class="item__center__img" src="{{item.taskLogPic}}" bindtap="imgClick" data-url="{{item.taskLogPic}}"></image>
+      <image class="item__center__img" src="{{item.taskLogPic}}" bindtap="imgClick" data-url="{{item.taskLogPic}}" mode="widthFix"></image>
       <text class="item__center__title">{{item.taskLogTitle}}</text>
       <text class="item__center__check-txt">已有{{item.checkNums}}人对其监督</text>
     </view>
