@@ -36,8 +36,10 @@ Component({
       user.forEach(item => {
         if (item.isPraise){
           item.praiseUrl = '/imgs/icon_likegood-2.png'
+          item.praiseTextColor = "color: #e33939;"
         }else{
           item.praiseUrl = '/imgs/icon_likegood.png'
+          item.praiseTextColor = "color: #b2b2b2;"
         }
       })
 

@@ -98,7 +98,6 @@
   height: 35rpx;
 }
 .item__bottom__praise-text{
-  color: #b2b2b2;
   font-size: 28rpx;
   margin-left: 10rpx;
 }

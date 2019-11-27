@@ -14,14 +14,14 @@
       </view>
     </view>
     <view class="taskLogList__item__center">
-      <image class="item__center__img" src="{{item.taskLogPic}}" bindtap="imgClick" data-url="{{item.taskLogPic}}" mode="widthFix"></image>
+      <image class="item__center__img" src="{{item.taskLogPic}}" bindtap="imgClick" data-url="{{item.taskLogPic}}" mode="aspectFill"></image>
       <text class="item__center__title">{{item.taskLogTitle}}</text>
       <text class="item__center__check-txt">已有{{item.checkNums}}人对其监督</text>
     </view>
     <view class="taskLogList__item__bottom">
       <view class="item__bottom__praise">
         <image src="{{item.praiseUrl}}" class="item__bottom__praise-img" bindtap="praiseClick" data-item="{{item}}" data-inedx="{{index}}"></image>
-        <text class="item__bottom__praise-text">{{item.praiseNums}}</text>
+        <text class="item__bottom__praise-text" style="{{item.praiseTextColor}}">{{item.praiseNums}}</text>
       </view>
       <view class="item__bottom__comment">
         <image class="item__bottom__comment-img" src="/imgs/icon_message.png"></image>
