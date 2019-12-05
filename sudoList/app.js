@@ -10,7 +10,7 @@ App({
   onShow() {
     wx.cloud.init();
     let userInfo = this.getUserInfoStorage()
-    this.globalData.nickName = userInfo.nickName
+    
     if (userInfo == null || userInfo.nickName == "" || userInfo.avatarUrl == "" || userInfo.gender == "") {
       wx.cloud.callFunction({
         name: "userLogin",
@@ -28,6 +28,8 @@ App({
         this.globalData.nickName = userInfoData.nickName
         wx.setStorageSync("user", JSON.stringify(userInfoData))
       })
+    }else{
+      this.globalData.nickName = userInfo.nickName
     }
     wx.cloud.callFunction({
       name: "Env",
