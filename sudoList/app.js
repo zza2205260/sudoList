@@ -3,12 +3,14 @@ import {constWxVersion} from "/utils/const.js"
 
 App({
   globalData: {
-    "isCheck": false
+    "isCheck": false,
+    "nickName": ""
   },
   onLaunch: function() {},
   onShow() {
     wx.cloud.init();
     let userInfo = this.getUserInfoStorage()
+    this.globalData.nickName = userInfo.nickName
     if (userInfo == null || userInfo.nickName == "" || userInfo.avatarUrl == "" || userInfo.gender == "") {
       wx.cloud.callFunction({
         name: "userLogin",
@@ -23,6 +25,7 @@ App({
         userInfoData = { ...userInfoData,
           ...res.result.data.loginInfo
         }
+        this.globalData.nickName = userInfoData.nickName
         wx.setStorageSync("user", JSON.stringify(userInfoData))
       })
     }
