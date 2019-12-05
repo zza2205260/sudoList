@@ -8,3 +8,13 @@
 ----
 #### 小程序二维码
 ![](https://raw.githubusercontent.com/zza2205260/sudoList/master/wxcode.jpg)
+
+
+
+版本更新：
+修改：
+  1.修改图片压缩显示问题
+  2.修改监督人分享问题
+新增：
+  1.新增评论功能
+  2.新增点赞功能
