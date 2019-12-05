@@ -18,12 +18,19 @@
       <text class="item__center__title">{{item.taskLogTitle}}</text>
       <text class="item__center__check-txt">已有{{item.checkNums}}人对其监督</text>
     </view>
+    <view class="item__comment">
+      <input wx:if="{{item.isOpenCommentInput}}" class="item__comment_input" placeholder="评论千万条，鼓励第一条！" auto-focus confirm-type="done" bindconfirm="commentConfirm" type='text' bindblur="commentBlur" data-item="{{item}}"></input>
+      <!-- <view class="item__comment__text-views">
+        <text></text>
+      </view> -->
+    </view>
+
     <view class="taskLogList__item__bottom">
       <view class="item__bottom__praise">
         <image src="{{item.praiseUrl}}" class="item__bottom__praise-img" bindtap="praiseClick" data-item="{{item}}" data-inedx="{{index}}"></image>
         <text class="item__bottom__praise-text" style="{{item.praiseTextColor}}">{{item.praiseNums}}</text>
       </view>
-      <view class="item__bottom__comment">
+      <view class="item__bottom__comment" bindtap="clickComment" data-index="{{index}}">
         <image class="item__bottom__comment-img" src="/imgs/icon_message.png"></image>
         <text class="item__bottom__comment-text">{{item.commentNums}}</text>
       </view>

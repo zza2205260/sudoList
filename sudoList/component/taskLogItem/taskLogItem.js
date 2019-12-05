@@ -32,15 +32,16 @@ Component({
     action_select_data: {}
   },
   observers: {
-    'taskLogList': function (user) {
+    'taskLogList': function(user) {
       user.forEach(item => {
-        if (item.isPraise){
+        if (item.isPraise) {
           item.praiseUrl = '/imgs/icon_likegood-2.png'
           item.praiseTextColor = "color: #b2b2b2;"
-        }else{
+        } else {
           item.praiseUrl = '/imgs/icon_likegood.png'
           item.praiseTextColor = "color: #b2b2b2;"
         }
+        item.isOpenCommentInput = false
       })
 
       this.setData({
@@ -62,8 +63,8 @@ Component({
           "taskLogId": item._id,
           "action": "Add"
         }
-      }).then(res=>{
-        if (res.result.isRefresh){
+      }).then(res => {
+        if (res.result.isRefresh) {
           let tempTaskLogList = this.data.taskLogListFix
           tempTaskLogList[index].praiseNums += 1
           tempTaskLogList[index].praiseUrl = '/imgs/icon_likegood-2.png'
@@ -115,15 +116,67 @@ Component({
       })
     },
     taskTitleClick: function(e) {
+      // 点击习惯标题
       let item = e.currentTarget.dataset.item
       wx.navigateTo({
-        url: "/pages/joinTask/joinTask?taskId="+item.taskId,
+        url: "/pages/joinTask/joinTask?taskId=" + item.taskId,
       })
     },
     avatarClick: function(e) {
+      // 点击头像
       let item = e.currentTarget.dataset.item;
       wx.navigateTo({
         url: '/pages/userHome/userHome?open_id=' + item._open_id,
+      })
+    },
+    clickComment: function(e) {
+      // 点击评论按钮
+      let itemIndex = e.currentTarget.dataset.index;
+      let taskLogListFix = this.data.taskLogListFix;
+      taskLogListFix.forEach((item, index)=>{
+        if (index == itemIndex){
+          item.isOpenCommentInput = true
+        }else{
+          item.isOpenCommentInput = false
+        }
+      })
+      this.setData({
+        taskLogListFix: taskLogListFix
+      })
+    },
+    commentBlur: function(e){
+      // 评论Input失去焦点
+      let taskLogListFix = this.data.taskLogListFix;
+      taskLogListFix.forEach(item=>{
+        item.isOpenCommentInput = false
+      })
+      this.setData({
+        taskLogListFix: taskLogListFix
+      })
+    },
+    commentConfirm: function(e){
+      // 评论Input点击键盘上的确定，上传评论
+      let value = e.detail.value;
+      let item = e.currentTarget.dataset.item;
+      wx.cloud.callFunction({
+        name: "comment",
+        data: {
+          action: "Add",
+          paramDcit: {
+            taskLogId: item._id,
+            toOpenId: item._open_id,
+            commentText: value
+          }
+        }
+      }).then(res=>{
+        let title = "添加评论失败"
+        if (res.result.errMsg == 'collection.add:ok'){
+          title = "添加评论成功"
+        }
+        wx.showToast({
+          title: title,
+          icon: "none"
+        })
       })
     }
   }
