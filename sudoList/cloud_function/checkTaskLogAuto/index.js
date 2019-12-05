@@ -15,7 +15,7 @@ exports.main = async (event, context) => {
   }).get()
   idList = []
   taskLogList.data.forEach(item=>{
-    if (zeroTs - item.zeroTs >= 2 * 86400) {
+    if (zeroTs - item.zeroTs >= 100 * 86400) {
       idList.push(item._id)
     }
   })
