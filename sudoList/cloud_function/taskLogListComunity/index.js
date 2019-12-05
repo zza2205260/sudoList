@@ -6,6 +6,15 @@ cloud.init()
 const db = cloud.database();
 const _ = db.command
 
+
+// 获取打卡评论列表
+const getTaskLogListCommentList = async (taskLogId) => {
+  return db.collection("comment").where({
+    taskLogId: taskLogId
+  }).orderBy("ctime", "desc").get()
+}
+
+
 // 云函数入口函数
 exports.main = async(event, context) => {
   const {
@@ -31,7 +40,12 @@ exports.main = async(event, context) => {
     item.avatarUrl = userInfo.avatarUrl
     item.gender = userInfo.gender
   })
-
+  let promiseList = taskLogList.data.map(item=>{
+    return getTaskLogListCommentList(item._id).then(res=>{
+      item.commentList = res.data
+    })
+  })
+  await Promise.all(promiseList)
   let returnData = await cloud.callFunction({
     name: "comReturn",
     data: {
