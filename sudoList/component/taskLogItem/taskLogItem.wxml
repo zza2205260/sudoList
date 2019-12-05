@@ -19,10 +19,10 @@
       <text class="item__center__check-txt">已有{{item.checkNums}}人对其监督</text>
     </view>
     <view class="item__comment">
-      <input wx:if="{{item.isOpenCommentInput}}" class="item__comment_input" placeholder="评论千万条，鼓励第一条！" auto-focus confirm-type="done" bindconfirm="commentConfirm" type='text' bindblur="commentBlur" data-item="{{item}}"></input>
-      <!-- <view class="item__comment__text-views">
-        <text></text>
-      </view> -->
+      <view wx:if="{{item.commentNums}}" class="item__comment__text-views" wx:for="{{item.commentList}}" wx:for-index="commentListIndex" wx:for-item="commentListItem" wx:key="_id">
+        <text>{{commentListItem.txt}}</text>
+      </view>
+      <input wx:if="{{item.isOpenCommentInput}}" class="item__comment_input" placeholder="评论千万条，鼓励第一条！" auto-focus confirm-type="done" bindconfirm="commentConfirm" type='text' bindblur="commentBlur" data-item="{{item}}" data-index="{{index}}"></input>
     </view>
 
     <view class="taskLogList__item__bottom">

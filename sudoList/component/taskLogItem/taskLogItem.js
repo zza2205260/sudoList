@@ -42,6 +42,18 @@ Component({
           item.praiseTextColor = "color: #b2b2b2;"
         }
         item.isOpenCommentInput = false
+        if (item.commentList.length > 0) {
+          item.commentList.forEach(item => {
+            let txt = ""
+            if (item._open_id == item.toOpenId) {
+              txt =  `${item.sendNickName}：${item.commentText}`
+            } else {
+              txt = `${item.sendNickName}回复${item.toNickName}：${item.commentText}`
+            }
+            item.txt = txt
+          })
+        }
+
       })
 
       this.setData({
@@ -133,10 +145,10 @@ Component({
       // 点击评论按钮
       let itemIndex = e.currentTarget.dataset.index;
       let taskLogListFix = this.data.taskLogListFix;
-      taskLogListFix.forEach((item, index)=>{
-        if (index == itemIndex){
+      taskLogListFix.forEach((item, index) => {
+        if (index == itemIndex) {
           item.isOpenCommentInput = true
-        }else{
+        } else {
           item.isOpenCommentInput = false
         }
       })
@@ -144,20 +156,21 @@ Component({
         taskLogListFix: taskLogListFix
       })
     },
-    commentBlur: function(e){
+    commentBlur: function(e) {
       // 评论Input失去焦点
       let taskLogListFix = this.data.taskLogListFix;
-      taskLogListFix.forEach(item=>{
+      taskLogListFix.forEach(item => {
         item.isOpenCommentInput = false
       })
       this.setData({
         taskLogListFix: taskLogListFix
       })
     },
-    commentConfirm: function(e){
+    commentConfirm: function(e) {
       // 评论Input点击键盘上的确定，上传评论
       let value = e.detail.value;
       let item = e.currentTarget.dataset.item;
+      let index = e.currentTarget.dataset.index;
       wx.cloud.callFunction({
         name: "comment",
         data: {
@@ -168,10 +181,17 @@ Component({
             commentText: value
           }
         }
-      }).then(res=>{
+      }).then(res => {
         let title = "添加评论失败"
-        if (res.result.errMsg == 'collection.add:ok'){
+        if (res.result.errMsg == 'collection.add:ok') {
           title = "添加评论成功"
+          let txt = `${getApp().globalData.nickName}：${value}`
+          let taskLogListFix = this.data.taskLogListFix
+          taskLogListFix[index].commentList.push({ txt: txt })
+          taskLogListFix[index].commentNums += 1
+          this.setData({
+            taskLogListFix: taskLogListFix
+          })
         }
         wx.showToast({
           title: title,
