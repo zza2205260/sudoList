@@ -4,6 +4,16 @@ const cloud = require('wx-server-sdk')
 cloud.init()
 
 const db = cloud.database();
+
+
+// 获取打卡评论列表
+const getTaskLogListCommentList = async(taskLogId) => {
+  return db.collection("comment").where({
+    taskLogId: taskLogId
+  }).orderBy("ctime", "desc").get()
+}
+
+
 // 云函数入口函数
 exports.main = async(event, context) => {
   const wxContext = cloud.getWXContext()
@@ -26,23 +36,27 @@ exports.main = async(event, context) => {
   }).get()
   taskLogList = taskLogList.data
   if (taskLogList.length > 0) {
-    if (userInfo.data[0].nickName.length > 0) {
-      const taskPromises = taskLogList.map((index) => {
-        index.nickName = userInfo.data[0].nickName
-        index.avatarUrl = userInfo.data[0].avatarUrl
-        index.gender = userInfo.data[0].gender
-        index.isPraise = false
-        return db.collection("praise").where({
-          "_open_id": open_id,
-          "taskLogId": index._id
-        }).count().then(res => {
-          if (res.total > 0) {
-            index.isPraise = true
-          }
-        })
+    const taskPromises = taskLogList.map((index) => {
+      index.nickName = userInfo.data[0].nickName
+      index.avatarUrl = userInfo.data[0].avatarUrl
+      index.gender = userInfo.data[0].gender
+      index.isPraise = false
+      let praisePromise = db.collection("praise").where({
+        "_open_id": open_id,
+        "taskLogId": index._id
+      }).count().then(res => {
+        if (res.total > 0) {
+          index.isPraise = true
+        }
       })
-      await Promise.all(taskPromises)
-    }
+      let commentPromise = getTaskLogListCommentList(index._id).then(res=>{
+        index.commentList = res.data
+      })
+
+      return Promise.all([praisePromise, commentPromise])
+    })
+    await Promise.all(taskPromises)
+
   }
   return_data.taskLogList = taskLogList
   return return_data
