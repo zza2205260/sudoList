@@ -10,7 +10,7 @@ const db = cloud.database();
 const getTaskLogListCommentList = async(taskLogId) => {
   return db.collection("comment").where({
     taskLogId: taskLogId
-  }).orderBy("ctime", "desc").get()
+  }).orderBy("ctime", "asc").get()
 }
 
 

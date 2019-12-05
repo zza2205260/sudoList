@@ -10,7 +10,7 @@ const _ = db.command
 const getTaskLogListCommentList = (taskLogId) => {
   return db.collection("comment").where({
     taskLogId: taskLogId
-  }).orderBy("ctime", "desc").get()
+  }).orderBy("ctime", "asc").get()
 }
 // 获取用户信息
 const getUserInfo = (open_id) => {

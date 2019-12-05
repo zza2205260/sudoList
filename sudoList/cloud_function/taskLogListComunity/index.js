@@ -11,7 +11,7 @@ const _ = db.command
 const getTaskLogListCommentList = async (taskLogId) => {
   return db.collection("comment").where({
     taskLogId: taskLogId
-  }).orderBy("ctime", "desc").get()
+  }).orderBy("ctime", "asc").get()
 }
 
 
