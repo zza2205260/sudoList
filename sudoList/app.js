@@ -1,5 +1,7 @@
 //app.js
-import {constWxVersion} from "/utils/const.js"
+import {
+  constWxVersion
+} from "/utils/const.js"
 
 App({
   globalData: {
@@ -7,10 +9,10 @@ App({
     "nickName": ""
   },
   onLaunch: function() {},
-  onShow() {
+  onShow(options) {
+    let type = options.query.type || ""
     wx.cloud.init();
     let userInfo = this.getUserInfoStorage()
-    
     if (userInfo == null || userInfo.nickName == "" || userInfo.avatarUrl == "" || userInfo.gender == "") {
       wx.cloud.callFunction({
         name: "userLogin",
@@ -27,18 +29,16 @@ App({
         }
         this.globalData.nickName = userInfoData.nickName
         wx.setStorageSync("user", JSON.stringify(userInfoData))
+        if (type == "share" && (userInfoData.nickName == "" || userInfoData.avatarUrl == "")) {
+          wx.navigateTo({
+            url: '/pages/getAuth/getAuth',
+          })
+        }
       })
-    }else{
+    } else {
       this.globalData.nickName = userInfo.nickName
     }
-    wx.cloud.callFunction({
-      name: "Env",
-      data: {}  
-    }).then(res=>{
-      if (res.result.version == constWxVersion){
-        this.globalData.isCheck = true
-      }
-    })
+    this.getEnv();
 
   },
   getUserInfoStorage: function() {
@@ -49,5 +49,15 @@ App({
       userInfo = null
     }
     return userInfo
+  },
+  getEnv: function() {
+    wx.cloud.callFunction({
+      name: "Env",
+      data: {}
+    }).then(res => {
+      if (res.result.version == constWxVersion) {
+        this.globalData.isCheck = true
+      }
+    })
   }
 })
