@@ -1,0 +1,5 @@
+<!--pages/find/find.wxml-->
+<view class="page">
+  <mp-searchbar placeholder="输入好友昵称" bindselectresult="selectResult" search="{{search}}"></mp-searchbar>
+
+</view>

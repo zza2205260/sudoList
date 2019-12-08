@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/mlist/mlist",
+    "pages/find/find",
     "pages/community/community",
     "pages/setting/setting",
     "pages/addTask/addTask",
@@ -21,6 +22,12 @@
         "text": "习惯",
         "iconPath": "imgs/icon_task_default.png",
         "selectedIconPath": "imgs/icon_task_press.png"
+      },
+      {
+        "pagePath": "pages/find/find",
+        "text": "发现",
+        "iconPath": "imgs/icon_search_default.png",
+        "selectedIconPath": "imgs/icon_search_press.png"
       },
       {
         "pagePath": "pages/community/community",

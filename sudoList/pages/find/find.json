@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "mp-searchbar": "/miniprogram_npm/weui-miniprogram/searchbar/searchbar"
+  },
+  "navigationBarTitleText": "发现"
+}
