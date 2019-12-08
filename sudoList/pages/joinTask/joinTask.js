@@ -100,6 +100,11 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {
-
+    let taskInfo = this.data.taskInfo;
+    let taskId = this.data.taskId;
+    return {
+      title: `一起加入#${taskInfo.title}#，一起交作业！！`,
+      path: `/pages/joinTask/joinTask?taskId=${taskId}&type=share`
+    }
   }
 })
