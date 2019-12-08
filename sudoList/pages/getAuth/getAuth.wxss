@@ -1,0 +1,8 @@
+/* pages/getAuth/getAuth.wxss */
+.auth_btn{
+  position: fixed;
+  top: 50vh;
+  left: 50vw;
+  margin-left: -250rpx;
+  width: 500rpx;
+}

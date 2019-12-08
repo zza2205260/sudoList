@@ -9,7 +9,8 @@
     "pages/becomeCheckUser/becomeCheckUser",
     "pages/userHome/userHome",
     "pages/checkList/checkList",
-    "pages/joinTask/joinTask"
+    "pages/joinTask/joinTask",
+    "pages/getAuth/getAuth"
   ],
   "tabBar": {
     "color": "#707070",

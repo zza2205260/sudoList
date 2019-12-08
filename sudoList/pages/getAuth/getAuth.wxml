@@ -1,0 +1,3 @@
+<!--pages/getAuth/getAuth.wxml-->
+<button class="auth_btn" type="primary" open-type="getUserInfo" bindgetuserinfo="authClick">兄弟别问了，点我！</button>
+
