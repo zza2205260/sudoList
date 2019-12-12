@@ -66,7 +66,9 @@ Page({
 
   },
   selectResult: function(e) {
-    console.log('select result', e.detail)
+    wx.navigateTo({
+      url: `/pages/userHome/userHome?open_id=${e.detail.item.open_id}`,
+    })
   },
   search: function(value) {
     console.log(value)
