@@ -13,7 +13,7 @@ App({
     let type = options.query.type || ""
     wx.cloud.init();
     let userInfo = this.getUserInfoStorage()
-    if (userInfo == null || userInfo.nickName == "" || userInfo.avatarUrl == "" || userInfo.gender == "") {
+    if (userInfo == null || Object.keys(userInfo).length == 0 ||userInfo.nickName == "" || userInfo.avatarUrl == "" || userInfo.gender == "") {
       wx.cloud.callFunction({
         name: "userLogin",
         data: {}
