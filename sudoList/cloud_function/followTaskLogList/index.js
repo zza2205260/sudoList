@@ -50,11 +50,11 @@ exports.main = async(event, context) => {
       item.avatarUrl = res.data[0].avatarUrl
       item.gender = res.data[0].gender
     })
-    let getTaskLogListCommentListPromise = getTaskLogListCommentList(item.taskLogId).then(res => {
+    let getTaskLogListCommentListPromise = getTaskLogListCommentList(item._id).then(res => {
       item.commentList = res.data
     })
 
-    return Promise.all(getUserInfoPromise, getTaskLogListCommentListPromise)
+    return Promise.all([getUserInfoPromise, getTaskLogListCommentListPromise])
   })
   await Promise.all(userAndCommnetPromiseList)
   let res = await cloud.callFunction({
