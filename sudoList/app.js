@@ -10,6 +10,8 @@ App({
   },
   onLaunch: function() {},
   onShow(options) {
+    wx.hideTabBar({
+    })
     let type = options.query.type || ""
     wx.cloud.init();
     let userInfo = this.getUserInfoStorage()
@@ -57,6 +59,10 @@ App({
     }).then(res => {
       if (res.result.version == constWxVersion) {
         this.globalData.isCheck = true
+      }else{
+        wx.showTabBar({
+          
+        })
       }
     })
   }
