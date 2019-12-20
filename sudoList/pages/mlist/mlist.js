@@ -1,4 +1,5 @@
 // pages/mlist/mlist.js
+import { constWxVersion} from '../../utils/const.js'
 Page({
 
   /**
@@ -7,7 +8,8 @@ Page({
   data: {
     taskListData: [],
     scrollHeight: 0,
-    addTaskClickF: null
+    addTaskClickF: null,
+    addTaskButtonShow: !getApp().globalData.isCheck
   },
 
   /**
@@ -84,7 +86,9 @@ Page({
      */
     wx.cloud.callFunction({
       name: 'taskList',
-      data: {},
+      data: {
+        version: constWxVersion
+      },
       success: (res) => {
         this.setData({
           taskListData: res.result.data.taskList

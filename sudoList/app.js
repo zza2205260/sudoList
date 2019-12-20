@@ -5,17 +5,18 @@ import {
 
 App({
   globalData: {
-    "isCheck": false,
+    "isCheck": true,
     "nickName": ""
   },
   onLaunch: function() {},
   onShow(options) {
-    wx.hideTabBar({
-    })
+
+    wx.hideTabBar({})
     let type = options.query.type || ""
     wx.cloud.init();
+    this.getEnv();
     let userInfo = this.getUserInfoStorage()
-    if (userInfo == null || Object.keys(userInfo).length == 0 ||userInfo.nickName == "" || userInfo.avatarUrl == "" || userInfo.gender == "") {
+    if (userInfo == null || Object.keys(userInfo).length == 0 || userInfo.nickName == "" || userInfo.avatarUrl == "" || userInfo.gender == "") {
       wx.cloud.callFunction({
         name: "userLogin",
         data: {}
@@ -40,7 +41,7 @@ App({
     } else {
       this.globalData.nickName = userInfo.nickName
     }
-    this.getEnv();
+
 
   },
   getUserInfoStorage: function() {
@@ -57,11 +58,9 @@ App({
       name: "Env",
       data: {}
     }).then(res => {
-      if (res.result.version == constWxVersion) {
-        this.globalData.isCheck = true
-      }else{
+      if (res.result.version != constWxVersion) {
+        this.globalData.isCheck = false
         wx.showTabBar({
-          
         })
       }
     })

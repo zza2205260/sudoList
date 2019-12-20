@@ -4,4 +4,4 @@
     <text class="taskListItem__title">{{item.title}}</text>
   </view>
 </scroll-view>
-<com-btn class="AddTaskBtn" btnTitle="添加习惯" clickFunc="{{addTaskClickF}}"></com-btn>
+<com-btn wx:if="{{addTaskButtonShow}}" class="AddTaskBtn" btnTitle="添加习惯" clickFunc="{{addTaskClickF}}"></com-btn>
