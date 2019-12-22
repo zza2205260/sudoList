@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    hotTaskList: []
   },
 
   /**
@@ -28,7 +28,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    this.getHotTaskList()
   },
 
   /**
@@ -89,6 +89,18 @@ Page({
         })
       }
       return searchResult
+    })
+  },
+  getHotTaskList: function(){
+    wx.cloud.callFunction({
+      name: "taskList",
+      data: {
+        type: "HOT"
+      }
+    }).then(res=>{
+      this.setData({
+        hotTaskList: res.result.data.taskList
+      })
     })
   }
 })
