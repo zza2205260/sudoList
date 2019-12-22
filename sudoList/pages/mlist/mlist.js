@@ -9,7 +9,7 @@ Page({
     taskListData: [],
     scrollHeight: 0,
     addTaskClickF: null,
-    addTaskButtonShow: !getApp().globalData.isCheck
+    addTaskButtonShow: false
   },
 
   /**
@@ -44,6 +44,13 @@ Page({
    */
   onShow: function () {
     this.getTaskList();
+    setTimeout(()=>{
+      console.log(getApp().globalData.isCheck)
+      this.setData({
+        addTaskButtonShow: !getApp().globalData.isCheck
+      })
+    }, 1000)
+    
   },
 
   /**
