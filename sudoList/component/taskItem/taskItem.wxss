@@ -1,0 +1,23 @@
+/* component/taskItem/taskItem.wxss */
+.taskItem{
+  margin-top: 20rpx;
+  width: 700rpx;
+  min-height: 150rpx;
+  background-color: white;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  padding: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.task-title{
+  color: #353535;
+  font-size: 34rpx;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+}
+.task-join-nums{
+  color: #888888;
+  font-size: 28rpx;
+}
