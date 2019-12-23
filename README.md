@@ -7,4 +7,9 @@
 ![](https://img.shields.io/badge/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91-%E6%AF%8F%E5%91%A8%E6%9B%B4%E6%96%B0-orange)
 ----
 #### 小程序二维码
-![](https://raw.githubusercontent.com/zza2205260/sudoList/master/wxcode.jpg)
+![](https://raw.githubusercontent.com/zza2205260/sudoList/master/md_img/wxcode.jpg)
+
+----
+![](https://raw.githubusercontent.com/zza2205260/sudoList/master/md_img/反馈图片.png)
+
+
