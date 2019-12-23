@@ -49,7 +49,7 @@ Page({
       this.setData({
         addTaskButtonShow: !getApp().globalData.isCheck
       })
-    }, 1000)
+    }, 2000)
     
   },
 

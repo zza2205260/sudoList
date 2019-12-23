@@ -11,7 +11,7 @@ const getHotTask = async() => {
   let promiseList = hotList.list.map(item => {
     return getTask(item._id).then(res => {
       let tempTask = res.data[0]
-      tempTask.count = item.count
+      tempTask.count = item.count * 1000
       taskList.push(tempTask)
     })
   })
