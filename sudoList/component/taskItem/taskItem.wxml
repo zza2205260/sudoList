@@ -1,5 +1,5 @@
 <!--component/taskItem/taskItem.wxml-->
-<view class="taskItem" wx:for="{{dataList}}" wx:for-item="itemData" wx:for-index="idx" wx:key="_id">
+<view class="taskItem" wx:for="{{dataList}}" wx:for-item="itemData" wx:for-index="idx" wx:key="_id" bindtap="clickItem" data-item="{{itemData}}">
   <text class="task-title">{{itemData.title}}</text>
   <text class="task-join-nums">共有{{itemData.count}}人加入</text>
 </view>
