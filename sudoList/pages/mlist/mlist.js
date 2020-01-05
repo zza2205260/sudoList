@@ -44,13 +44,20 @@ Page({
    */
   onShow: function () {
     this.getTaskList();
-    setTimeout(()=>{
-      console.log(getApp().globalData.isCheck)
-      this.setData({
-        addTaskButtonShow: !getApp().globalData.isCheck
-      })
-    }, 2000)
-    
+    this.getEnv();
+  },
+
+  getEnv: function(){
+    wx.cloud.callFunction({
+      name: "Env",
+      data: {}
+    }).then(res=>{
+      if (res.result.version != constWxVersion){
+        this.setData({
+          addTaskButtonShow: true
+        })
+      }
+    })
   },
 
   /**
