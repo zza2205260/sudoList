@@ -11,7 +11,7 @@ const db = cloud.database();
 exports.main = async(event, context) => {
   const wxContext = cloud.getWXContext()
   const nowTs = Date.parse(new Date())
-  const zeroTs = new Date(new Date().setHours(0, 0, 0, 0)) / 1000
+  const zeroTs = new Date(new Date().toLocaleDateString()).getTime() / 1000
   let {
     taskId,
     taskLogPic,
@@ -28,6 +28,7 @@ exports.main = async(event, context) => {
     _open_id: wxContext.OPENID,
     taskId: taskId
   }).count()
+
   if (taskLogInfo.total != 0) {
     error = errorTaskLogExist
   }
