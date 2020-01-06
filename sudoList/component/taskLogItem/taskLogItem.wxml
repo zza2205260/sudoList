@@ -27,7 +27,7 @@
 
     <view class="taskLogList__item__bottom">
       <view class="item__bottom__praise">
-        <image src="{{item.praiseUrl}}" class="item__bottom__praise-img" bindtap="praiseClick" data-item="{{item}}" data-inedx="{{index}}"></image>
+        <image src="{{item.praiseUrl}}" class="item__bottom__praise-img" bindtap="praiseClick" data-item="{{item}}" data-index="{{index}}"></image>
         <text class="item__bottom__praise-text" style="{{item.praiseTextColor}}">{{item.praiseNums}}</text>
       </view>
       <view class="item__bottom__comment" bindtap="clickComment" data-index="{{index}}">
