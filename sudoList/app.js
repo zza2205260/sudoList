@@ -10,39 +10,10 @@ App({
   },
   onLaunch: function() {},
   onShow(options) {
-
     wx.hideTabBar({})
     let type = options.query.type || ""
     wx.cloud.init();
     this.getEnv();
-    let userInfo = this.getUserInfoStorage()
-    if (userInfo == null || Object.keys(userInfo).length == 0 || userInfo.nickName == "" || userInfo.avatarUrl == "" || userInfo.gender == "") {
-      wx.cloud.callFunction({
-        name: "userLogin",
-        data: {}
-      }).then(res => {
-        let userInfoData = {
-          _open_id: "",
-          nickName: "",
-          avatarUrl: "",
-          gender: ""
-        }
-        userInfoData = { ...userInfoData,
-          ...res.result.data.loginInfo
-        }
-        this.globalData.nickName = userInfoData.nickName
-        wx.setStorageSync("user", JSON.stringify(userInfoData))
-        if (type == "share" && (userInfoData.nickName == "" || userInfoData.avatarUrl == "")) {
-          wx.navigateTo({
-            url: '/pages/getAuth/getAuth',
-          })
-        }
-      })
-    } else {
-      this.globalData.nickName = userInfo.nickName
-    }
-
-
   },
   getUserInfoStorage: function() {
     let userInfo = wx.getStorageSync("user")
@@ -63,6 +34,33 @@ App({
         wx.showTabBar({
         })
       }
+      this.getUserInfoForCloud()
     })
+  },
+  getUserInfoForCloud: function(){
+    let userInfo = this.getUserInfoStorage()
+    if (userInfo == null || Object.keys(userInfo).length == 0 || userInfo.nickName == "" || userInfo.avatarUrl == "" || userInfo.gender == "") {
+      wx.cloud.callFunction({
+        name: "userLogin",
+        data: {}
+      }).then(res => {
+        let userInfoData = {
+          _open_id: "",
+          nickName: "",
+          avatarUrl: "",
+          gender: ""
+        }
+        userInfoData = { ...userInfoData,
+          ...res.result.data.loginInfo
+        }
+        this.globalData.nickName = userInfoData.nickName
+        wx.setStorageSync("user", JSON.stringify(userInfoData))
+        wx.navigateTo({
+          url: '/pages/getAuth/getAuth',
+        })
+      })
+    } else {
+      this.globalData.nickName = userInfo.nickName
+    }
   }
 })
