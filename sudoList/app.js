@@ -55,9 +55,11 @@ App({
         }
         this.globalData.nickName = userInfoData.nickName
         wx.setStorageSync("user", JSON.stringify(userInfoData))
-        wx.navigateTo({
-          url: '/pages/getAuth/getAuth',
-        })
+        if(userInfoData.nickName == "" || userInfoData.avatarUrl == ""){
+          wx.navigateTo({
+            url: '/pages/getAuth/getAuth',
+          })
+        }
       })
     } else {
       this.globalData.nickName = userInfo.nickName
