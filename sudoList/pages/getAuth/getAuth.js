@@ -80,7 +80,9 @@ Page({
       wx.showToast({
         title: '授权成功',
       })
-      
+      wx.navigateBack({
+        complete: (res) => {},
+      })
     })
 
   },
