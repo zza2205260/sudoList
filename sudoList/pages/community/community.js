@@ -81,7 +81,7 @@ Page({
     let selectIndex = e.currentTarget.dataset.index
     let cateList = this.data.cateList
     if (selectIndex == 0){
-
+      this.getFollowList(0)
     }else{
       this.getTaskLogList(selectItem.id, 0)
     }
