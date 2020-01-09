@@ -18,8 +18,7 @@ Page({
   onLoad: function (options) {
     let open_id = options.open_id;
     this.setData({
-      open_id: open_id,
-      onGotUserInfo: this.onGotUserInfo
+      open_id: open_id
     }, ()=>{
      this.getUserInfo(); 
     })
@@ -30,11 +29,11 @@ Page({
     wx.cloud.callFunction({
       name: "userInfoGet",
       data: {
-        oepn_id: this.data.open_id
+        open_id: this.data.open_id
       }
     }).then((res)=>{
       this.setData({
-        userInfo: res.result.data.userInfo
+        userInfo: res.result.data
       })
     })
   },

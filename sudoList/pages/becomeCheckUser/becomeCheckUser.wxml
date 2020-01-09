@@ -3,4 +3,4 @@
   <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
   <text class="explain"> 你好。求求成为我的习惯监督人吧。救救孩子吧！</text>
 </view>
-<com-btn class="accept" btnTitle="接受" clickFunc="{{addTaskClickF}}"></com-btn>
+<button type="primary" class="accept" bindtap="onGotUserInfo">接受</button>
